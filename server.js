@@ -1,7 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
 const app = express()
+
+// use body parser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use( bodyParser.json()); 
 
 // use cors
 app.use(cors())
@@ -20,9 +25,11 @@ mongoose.connect('mongodb+srv://yorgo:8hZI1iJ28EzZF9fv@cluster0.fvt3o7d.mongodb.
 
 
 // Models
-const Section = require('./models/section');
 const Item = require('./models/item');
 const Category = require('./models/category');
+const Section = require('./models/section');
+
+
 
 // API end-points
 app.get('/', (req, res) => {
@@ -30,12 +37,20 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add-item', (req, res) => {
+    Item.create({
+        name: req.body.name,
+        price: req.body.price
+    })
 })
 
 app.post('/add-category', (req, res) => {
 })
 
 app.post('/add-section', (req, res) => {
+    Section.create({
+        categories: req.body.categories,
+        name: req.body.name
+    })
 })
 
 app.get('/get-sections', (req, res) => {
