@@ -47,10 +47,11 @@ app.post('/add-category', (req, res) => {
 })
 
 app.post('/add-section', (req, res) => {
-    Section.create({
-        categories: req.body.categories,
-        name: req.body.name
-    })
+    console.log(req.body.name, req.body.categories);
+    // Section.create({
+    //     categories: req.body.categories,
+    //     name: req.body.name
+    // })
 })
 
 app.get('/get-sections', (req, res) => {
