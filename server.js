@@ -37,10 +37,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add-item', (req, res) => {
-    Item.create({
-        name: req.body.name,
-        price: req.body.price
-    })
+    console.log(req.body.name, req.body.price);
+    // Item.create({
+        // name: req.body.name,
+        // price: req.body.price
+    // })
 })
 
 app.post('/add-category', (req, res) => {
