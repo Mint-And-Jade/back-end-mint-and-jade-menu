@@ -39,7 +39,7 @@ app.post('/add-section', (req, res) => {
 })
 
 app.get('/get-sections', (req, res) => {
-    res.send(Section.find())
+    res.json(Section.find())
 })
 
 app.delete('/delete-section', (req, res) => {
