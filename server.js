@@ -6,7 +6,7 @@ const app = express()
 
 // use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use( bodyParser.json()); 
+app.use(bodyParser.json()); 
 
 // use cors
 app.use(cors())
@@ -47,7 +47,7 @@ app.post('/add-category', (req, res) => {
 })
 
 app.post('/add-section', (req, res) => {
-    console.log(req.body.name, req.body.categories);
+    console.log(req.body);
     // Section.create({
     //     categories: req.body.categories,
     //     name: req.body.name
