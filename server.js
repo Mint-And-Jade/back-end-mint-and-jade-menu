@@ -136,7 +136,8 @@ app.put('/edit-categories', (req, res) => {
     }
 })
 
-app.put('/edit-items', (req, res) => {
+app.post('/edit-items', (req, res) => {
+    console.log(req.body.editedItems);
     for (let i = 0; i < req.body.editedItems.length; i++) {
         const item = req.body.editedItems[i];
         Item.findByIdAndUpdate(item._id, {
