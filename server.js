@@ -15,6 +15,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
     origin: true
 }))
+app.options('*', cors());
 
 // DB Connection
 mongoose.set('strictQuery', false);
