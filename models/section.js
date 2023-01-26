@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const sectionSchema = new Schema({
-    'categories': Array,
     'name': String
 })
 
