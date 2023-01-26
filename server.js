@@ -10,9 +10,7 @@ app.use(bodyParser.json());
 
 // use cors
 app.use(cors({
-    origin: 'https://mintandjade.netlify.app/',
     methods: ['PUT', 'POST', 'GET', 'DELETE'],
-    allowedHeaders: ['Content-Type']
   }))
 
 // DB Connection
