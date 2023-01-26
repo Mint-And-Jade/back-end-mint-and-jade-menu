@@ -136,7 +136,7 @@ app.put('/edit-categories', (req, res) => {
     }
 })
 
-app.post('/edit-items', (req, res) => {
+app.options('/edit-items', (req, res) => {
     console.log(req.body.editedItems);
     for (let i = 0; i < req.body.editedItems.length; i++) {
         const item = req.body.editedItems[i];
@@ -168,7 +168,7 @@ app.delete('/delete-section', (req, res) => {
     })
 })
 
-app.delete('/delete-item', (req, res) => {
+app.options('/delete-item', (req, res) => {
     Item.findByIdAndDelete(req.body.item_id, (err, doc) => {
         if (err) {
             console.log(err);
