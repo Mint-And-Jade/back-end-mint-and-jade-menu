@@ -9,7 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // use cors
-app.use(cors())
+app.use(cors({
+    origin: 'https://mintandjade.netlify.app/',
+    methods: ['PUT', 'POST', 'GET', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+  }))
 
 // DB Connection
 mongoose.set('strictQuery', false);
@@ -136,7 +140,7 @@ app.put('/edit-categories', (req, res) => {
     }
 })
 
-app.get('/edit-items', (req, res) => {
+app.put('/edit-items', (req, res) => {
     console.log(req.body.editedItems);
     for (let i = 0; i < req.body.editedItems.length; i++) {
         const item = req.body.editedItems[i];
@@ -168,7 +172,7 @@ app.delete('/delete-section', (req, res) => {
     })
 })
 
-app.get('/delete-item', (req, res) => {
+app.delete('/delete-item', (req, res) => {
     Item.findByIdAndDelete(req.body.item_id, (err, doc) => {
         if (err) {
             console.log(err);
