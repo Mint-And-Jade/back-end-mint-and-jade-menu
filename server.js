@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // use cors
 app.use(cors({
-    methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     origin: '*'
 }))
 
@@ -105,19 +105,22 @@ app.get('/get-items', (req, res) => {
 app.put('/edit-sections', (req, res) => {
     for (let i = 0; i < req.body.editedSections.length; i++) {
         const section = req.body.editedSections[i];
-        console.log(section.name);
-        Section.findByIdAndUpdate(section._id, {
-            name: section.name,
-        }, {
-            new: true
-        }, (err, result) => {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.send(result)
-            }
-        })
+        
+        setTimeout(() => {
+            console.log(section.name);
+            Section.findByIdAndUpdate(section._id, {
+                name: section.name,
+            }, {
+                new: true
+            }, (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.send(result)
+                }
+            })
+        }, 1000)
     }
 })
 
