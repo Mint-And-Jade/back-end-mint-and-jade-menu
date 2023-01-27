@@ -10,12 +10,9 @@ app.use(bodyParser.json());
 
 // use cors
 app.use(cors({
-    credentials: true,
-    preflightContinue: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
-    origin: true
+    origin: '*'
 }))
-app.options('*', cors());
 
 // DB Connection
 mongoose.set('strictQuery', false);
@@ -108,6 +105,7 @@ app.get('/get-items', (req, res) => {
 app.put('/edit-sections', (req, res) => {
     for (let i = 0; i < req.body.editedSections.length; i++) {
         const section = req.body.editedSections[i];
+        console.log(section.name);
         Section.findByIdAndUpdate(section._id, {
             name: section.name,
         }, {
