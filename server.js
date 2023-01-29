@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // use cors
 app.use(cors({
-    methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     origin: '*'
 }))
 
@@ -100,6 +100,16 @@ app.get('/get-items', (req, res) => {
     });
 })
 
+app.get('/get-all-page-data', (req, res) => {
+    Promise.all([
+        Section.find({}),
+        Category.find({}),
+        Item.find({})
+    ])
+    .then(results => {
+        res.json(results)
+    })
+})
 
 // Edit 
 app.put('/edit-sections', (req, res) => {
