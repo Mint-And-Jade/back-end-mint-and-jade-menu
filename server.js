@@ -51,7 +51,6 @@ app.post('/add-item', (req, res) => {
 
 app.post('/add-category', (req, res) => {
     Category.create({
-        items: req.body.items,
         name: req.body.name,
         section_id: req.body.section_id,
         note: req.body.note
@@ -61,7 +60,6 @@ app.post('/add-category', (req, res) => {
 
 app.post('/add-section', (req, res) => {
     Section.create({
-        categories: req.body.categories,
         name: req.body.name
     })
 })
