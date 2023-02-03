@@ -46,6 +46,8 @@ app.post('/add-item', (req, res) => {
         name: req.body.name,
         price: req.body.price,
         category_id: req.body.category_id,
+    }, (err, result) => {
+        res.send(result)
     })
 })
 
@@ -54,13 +56,16 @@ app.post('/add-category', (req, res) => {
         name: req.body.name,
         section_id: req.body.section_id,
         note: req.body.note
+    }, (err, result) => {
+        res.send(result)
     })
-    console.log(req.body.name);
 })
 
 app.post('/add-section', (req, res) => {
     Section.create({
         name: req.body.name
+    }, (err, result) => {
+        res.send(result)
     })
 })
 
