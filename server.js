@@ -19,7 +19,7 @@ mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://yorgo:8hZI1iJ28EzZF9fv@cluster0.fvt3o7d.mongodb.net/?retryWrites=true&w=majority')
     .then(() => {
         console.log('DB Connected');
-        app.listen('3000', () => {
+        app.listen('10000', () => {
             console.log('Server is on!');
         })
     }).catch((err) => {
