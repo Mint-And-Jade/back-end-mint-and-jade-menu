@@ -33,6 +33,11 @@ const Category = require('./models/category');
 const Section = require('./models/section');
 
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://mintandjade.netlify.app"); // Update to match the requesting origin
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 
 // API end-points
